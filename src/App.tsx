@@ -27,6 +27,7 @@ function App() {
 
   return (
     <QueryClientProvider client={queryClient}>
+      <Analytics />
       <Routes>
         <Route path="/" element={<Navigate to="/login" replace />} />
         <Route path={'/login'} element={<LoginPage />} />
