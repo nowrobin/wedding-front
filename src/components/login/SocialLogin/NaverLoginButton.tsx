@@ -1,4 +1,5 @@
 import LoginButton from '../LoginButton';
+import naverLoginLogo from '@assets/naver-login.png'
 
 const NAVER_CLIENT_ID = import.meta.env.VITE_NAVER_CLIENT_ID;
 const STATE = 'test';
@@ -13,7 +14,7 @@ const NaverLoginButton = () => {
 
   return (
     <LoginButton
-      imgSrc="/src/assets/naver-login.png"
+      imgSrc={naverLoginLogo}
       altText="Naver Login"
       onClick={handleNaverLogin}
     />

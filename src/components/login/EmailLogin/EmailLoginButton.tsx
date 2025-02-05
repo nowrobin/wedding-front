@@ -1,12 +1,12 @@
 import { useNavigate } from 'react-router';
 import LoginButton from '../LoginButton';
-
+import emailLogo from '@/assets/email-login.png'
 const EmailLoginButton = () => {
   const navigate = useNavigate();
 
   return (
     <LoginButton
-      imgSrc="/src/assets/email-login.png"
+      imgSrc={emailLogo}
       altText="Email Login"
       additionalStyles="mb-3"
       onClick={() => navigate('/email-login')}
