@@ -20,6 +20,7 @@ import ChangePasswordPage from '@/pages/ChangePasswordPage';
 import SignUpPage from '@/pages/SignUpPage';
 import AdminPhotoTalkPage from '@/pages/PhotoTalk/AdminPhotoTalkPage';
 import PhotoTalkPage from '@/pages/PhotoTalk/PhotoTalkPage';
+import { Analytics } from "@vercel/analytics/react"
 
 function App() {
   const queryClient = new QueryClient();
