@@ -8,7 +8,7 @@ import useAuthStore from '../store/useAuthStore';
 const BASE_URL = import.meta.env.VITE_API_URL;
 
 export const axiosInstance = axios.create({
-  baseURL: BASE_URL,
+  baseURL: '/api',
   headers: {
     'Content-Type': 'application/json',
   },
@@ -69,11 +69,11 @@ axiosInstance.interceptors.response.use(
 );
 
 export const API = {
-  EMAILLOGIN: () => `/api/${BASE_URL}/users/login`,
+  EMAILLOGIN: () => `/users/login`,
   KAKAOLOGIN: () => `/api/${BASE_URL}/users/oauth/kakao`,
   NAVERLOGIN: () => `/api/${BASE_URL}/users/oauth/naver`,
   RESETPASSWORD: () => `/api/${BASE_URL}/users/account/password/reset`,
-  SIGNUP: () => `/api/${BASE_URL}/users/signup`,
+  SIGNUP: () => `/users/signup`,
   LOGOUT: () => `/api/${BASE_URL}/users/logout`,
   REFRESH: () => `/api/${BASE_URL}/users/refresh`,
   ACCOUNT: () => `/api/${BASE_URL}/users/account`,
