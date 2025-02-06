@@ -6,14 +6,18 @@ import tsconfigPaths from 'vite-tsconfig-paths';
 // https://vite.dev/config/
 export default defineConfig({
   plugins: [react(), tsconfigPaths()],
-  base: '/',
+  // base: '/',
   server: {
+    // proxy: {
+    //   '/api': {
+    //     target: 'https://woogyeol.site', // 백엔드 주소
+    //     changeOrigin: true,
+    //     secure: true,
+    //     rewrite: (path) => path.replace(/^\/api/, ''),
+    //   },
+    // },
     proxy: {
-      '/api': {
-        target: 'https://woogyeol.site', // 백엔드 주소
-        changeOrigin: true,
-        rewrite: (path) => path.replace(/^\/api/, ''),
-      },
+      '/api': 'https://woogyeol.site',
     },
   },
 });
