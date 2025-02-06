@@ -8,7 +8,7 @@ import useAuthStore from '../store/useAuthStore';
 const BASE_URL = import.meta.env.VITE_API_URL;
 
 export const axiosInstance = axios.create({
-  baseURL: '/api',
+  baseURL: 'https://woogyeol.site',
   headers: {
     'Content-Type': 'application/json',
   },
@@ -69,15 +69,15 @@ axiosInstance.interceptors.response.use(
 );
 
 export const API = {
-  EMAILLOGIN: () => `/users/login`,
+  EMAILLOGIN: () => `/api/users/login`,
   KAKAOLOGIN: () => `${BASE_URL}/api/users/oauth/kakao`,
-  NAVERLOGIN: () => `/api/${BASE_URL}/users/oauth/naver`,
-  RESETPASSWORD: () => `/api/${BASE_URL}/users/account/password/reset`,
-  SIGNUP: () => `/users/signup`,
-  LOGOUT: () => `/api/${BASE_URL}/users/logout`,
-  REFRESH: () => `/api/${BASE_URL}/users/refresh`,
-  ACCOUNT: () => `/api/${BASE_URL}/users/account`,
-  INVITATIONS: (id?: string) => `/api/${BASE_URL}/invitations/${id ? id : ''}`,
+  NAVERLOGIN: () => `${BASE_URL}/users/oauth/naver`,
+  RESETPASSWORD: () => `${BASE_URL}/users/account/password/reset`,
+  SIGNUP: () => `${BASE_URL}/users/signup`,
+  LOGOUT: () => `${BASE_URL}/users/logout`,
+  REFRESH: () => `${BASE_URL}/users/refresh`,
+  ACCOUNT: () => `${BASE_URL}/users/account`,
+  INVITATIONS: (id?: string) => `/api/invitations/${id ? id : ''}`,
   ATTENDANCE: (page?: number, size?: number) =>
     `/api/${BASE_URL}/attendances${page ? `/?page=${page}` : ''}${size ? `&size=${size}` : ''}`,
   CHANGEPASSWORD: () => `/api/${BASE_URL}/users/account/password`,
