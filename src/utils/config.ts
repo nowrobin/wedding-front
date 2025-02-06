@@ -69,18 +69,19 @@ axiosInstance.interceptors.response.use(
 );
 
 export const API = {
-  EMAILLOGIN: () => `${BASE_URL}/users/login`,
-  KAKAOLOGIN: () => `${BASE_URL}/users/oauth/kakao`,
-  NAVERLOGIN: () => `${BASE_URL}/users/oauth/naver`,
-  RESETPASSWORD: () => `${BASE_URL}/users/account/password/reset`,
-  SIGNUP: () => `${BASE_URL}/users/signup`,
-  LOGOUT: () => `${BASE_URL}/users/logout`,
-  REFRESH: () => `${BASE_URL}/users/refresh`,
-  ACCOUNT: () => `${BASE_URL}/users/account`,
-  INVITATIONS: (id?: string) => `${BASE_URL}/invitations/${id ? id : ''}`,
-  ATTENDANCE: (page?: number, size?: number) => `${BASE_URL}/attendances${page ? `/?page=${page}` : ''}${size ? `&size=${size}` : ''}`,
-  CHANGEPASSWORD: () => `${BASE_URL}/users/account/password`,
+  EMAILLOGIN: () => `/api/${BASE_URL}/users/login`,
+  KAKAOLOGIN: () => `/api/${BASE_URL}/users/oauth/kakao`,
+  NAVERLOGIN: () => `/api/${BASE_URL}/users/oauth/naver`,
+  RESETPASSWORD: () => `/api/${BASE_URL}/users/account/password/reset`,
+  SIGNUP: () => `/api/${BASE_URL}/users/signup`,
+  LOGOUT: () => `/api/${BASE_URL}/users/logout`,
+  REFRESH: () => `/api/${BASE_URL}/users/refresh`,
+  ACCOUNT: () => `/api/${BASE_URL}/users/account`,
+  INVITATIONS: (id?: string) => `/api/${BASE_URL}/invitations/${id ? id : ''}`,
+  ATTENDANCE: (page?: number, size?: number) =>
+    `/api/${BASE_URL}/attendances${page ? `/?page=${page}` : ''}${size ? `&size=${size}` : ''}`,
+  CHANGEPASSWORD: () => `/api/${BASE_URL}/users/account/password`,
   PHOTOTALKS: (id?: string, page?: number, size?: number) =>
-    `${BASE_URL}/celebrationMsgs/${id ? id : ''}${page ? `/?page=${page}` : ''}${size ? `&size=${size}` : ''}`,
-  S3Images: () => `${BASE_URL}/imageUpload/?directory=invitaion`,
+    `/api/${BASE_URL}/celebrationMsgs/${id ? id : ''}${page ? `/?page=${page}` : ''}${size ? `&size=${size}` : ''}`,
+  S3Images: () => `/api/${BASE_URL}/imageUpload/?directory=invitaion`,
 };

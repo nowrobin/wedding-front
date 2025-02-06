@@ -9,8 +9,8 @@ export default defineConfig({
   base: '/api',
   server: {
     proxy: {
-      '': {
-        target: 'https://woogyeol.site/api', // 백엔드 주소
+      '/api': {
+        target: 'https://woogyeol.site', // 백엔드 주소
         changeOrigin: true,
         rewrite: (path) => path.replace(/^\/api/, ''),
       },
