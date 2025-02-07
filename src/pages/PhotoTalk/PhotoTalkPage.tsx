@@ -7,7 +7,7 @@ import { useNavigate, useParams } from 'react-router';
 
 const PhotoTalkPage = () => {
   const [isEditorOpen, setEditorOpen] = useState(false);
-  console.log(isEditorOpen)
+  console.log(isEditorOpen);
   const navigate = useNavigate();
 
   const { userId, invitationId } = useParams();

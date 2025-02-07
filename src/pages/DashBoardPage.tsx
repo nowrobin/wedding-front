@@ -6,7 +6,8 @@ import { useEffect, useState } from 'react';
 import { useGetInvitations } from '@/hooks/useInvitation';
 
 const DashBoardPage = () => {
-  const { data, isPending, isRefetching, status, isError, isFetching } = useGetInvitations()
+  const { data, isPending, isRefetching, status, isError, isFetching } =
+    useGetInvitations();
   const [invitations, setInvitations] = useState([]);
   useEffect(() => {
     if (data) {

@@ -13,8 +13,8 @@ const ResultPage = () => {
   const { setOrderItems } = useAccordionStore();
 
   useEffect(() => {
-    setOrderItems()
-  }, [])
+    setOrderItems();
+  }, []);
   useUpdateInvitationStore(invitations as InvitationDetiail);
 
   return (
@@ -24,4 +24,3 @@ const ResultPage = () => {
   );
 };
 export default ResultPage;
-

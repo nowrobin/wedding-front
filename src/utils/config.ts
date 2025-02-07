@@ -8,7 +8,7 @@ import useAuthStore from '../store/useAuthStore';
 const BASE_URL = import.meta.env.VITE_API_URL;
 
 export const axiosInstance = axios.create({
-  baseURL: 'https://woogyeol.site',
+  baseURL: `${BASE_URL}/api`,
   headers: {
     'Content-Type': 'application/json',
   },
@@ -69,19 +69,19 @@ axiosInstance.interceptors.response.use(
 );
 
 export const API = {
-  EMAILLOGIN: () => `/api/users/login`,
-  KAKAOLOGIN: () => `${BASE_URL}/api/users/oauth/kakao`,
-  NAVERLOGIN: () => `${BASE_URL}/users/oauth/naver`,
-  RESETPASSWORD: () => `${BASE_URL}/users/account/password/reset`,
-  SIGNUP: () => `${BASE_URL}/users/signup`,
-  LOGOUT: () => `${BASE_URL}/users/logout`,
-  REFRESH: () => `${BASE_URL}/users/refresh`,
-  ACCOUNT: () => `${BASE_URL}/users/account`,
-  INVITATIONS: (id?: string) => `/api/invitations/${id ? id : ''}`,
+  EMAILLOGIN: () => `/users/login`,
+  KAKAOLOGIN: () => `/users/oauth/kakao`,
+  NAVERLOGIN: () => `/users/oauth/naver`,
+  RESETPASSWORD: () => `/users/account/password/reset`,
+  SIGNUP: () => `/users/signup`,
+  LOGOUT: () => `/users/logout`,
+  REFRESH: () => `/users/refresh`,
+  ACCOUNT: () => `/users/account`,
+  INVITATIONS: (id?: string) => `/invitations/${id ? id : ''}`,
   ATTENDANCE: (page?: number, size?: number) =>
-    `/api/${BASE_URL}/attendances${page ? `/?page=${page}` : ''}${size ? `&size=${size}` : ''}`,
-  CHANGEPASSWORD: () => `/api/${BASE_URL}/users/account/password`,
+    `/attendances${page ? `/?page=${page}` : ''}${size ? `&size=${size}` : ''}`,
+  CHANGEPASSWORD: () => `/users/account/password`,
   PHOTOTALKS: (id?: string, page?: number, size?: number) =>
-    `/api/${BASE_URL}/celebrationMsgs/${id ? id : ''}${page ? `/?page=${page}` : ''}${size ? `&size=${size}` : ''}`,
-  S3Images: () => `/api/${BASE_URL}/imageUpload/?directory=invitaion`,
+    `/celebrationMsgs/${id ? id : ''}${page ? `/?page=${page}` : ''}${size ? `&size=${size}` : ''}`,
+  S3Images: () => `/imageUpload/?directory=invitaion`,
 };

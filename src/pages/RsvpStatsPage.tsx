@@ -24,28 +24,44 @@ const RsvpStatsPage = () => {
   const { data: stats } = useGetStats() as { data: StatsResponse | undefined };
 
   // useGetAttendances의 반환 타입을 명확하게 지정
-  const { data } = useGetAttendances(1, 10) as { data: AttendanceResponse | undefined };
+  const { data } = useGetAttendances(1, 10) as {
+    data: AttendanceResponse | undefined;
+  };
 
   // allAttendances를 추출하고, 배열이 아닐 경우 빈 배열로 처리
-  const attendanceList = Array.isArray(data?.allAttendances) ? data.allAttendances : [];
-  const statsList = Array.isArray(stats?.allAttendances) ? stats.allAttendances : [];
+  const attendanceList = Array.isArray(data?.allAttendances)
+    ? data.allAttendances
+    : [];
+  const statsList = Array.isArray(stats?.allAttendances)
+    ? stats.allAttendances
+    : [];
 
   const totalResponses = statsList.length;
   const totalAttending = statsList.filter((g) => g.attendance).length;
   const totalNotAttending = statsList.filter((g) => !g.attendance).length;
 
-  const groomAttending = statsList.filter((g) => g.isGroomSide && g.attendance).length;
-  const groomNotAttending = statsList.filter((g) => g.isGroomSide && !g.attendance).length;
+  const groomAttending = statsList.filter(
+    (g) => g.isGroomSide && g.attendance,
+  ).length;
+  const groomNotAttending = statsList.filter(
+    (g) => g.isGroomSide && !g.attendance,
+  ).length;
 
-  const brideAttending = statsList.filter((g) => g.isBrideSide && g.attendance).length;
-  const brideNotAttending = statsList.filter((g) => g.isBrideSide && !g.attendance).length;
+  const brideAttending = statsList.filter(
+    (g) => g.isBrideSide && g.attendance,
+  ).length;
+  const brideNotAttending = statsList.filter(
+    (g) => g.isBrideSide && !g.attendance,
+  ).length;
 
   const mealAvailable = statsList.filter((g) => g.isDining === '예정').length;
-  const mealNotAvailable = statsList.filter((g) => g.isDining === '안함').length;
+  const mealNotAvailable = statsList.filter(
+    (g) => g.isDining === '안함',
+  ).length;
   const mealPending = statsList.filter((g) => g.isDining === '미정').length;
 
-  console.log("Attendances Data:", attendanceList);
-  console.log("Stats Data:", statsList);
+  console.log('Attendances Data:', attendanceList);
+  console.log('Stats Data:', statsList);
 
   return (
     <PageLayout
@@ -105,16 +121,20 @@ const RsvpStatsPage = () => {
               >
                 <span>{`${attendance.name}님 외 ${attendance.companions}명`}</span>
                 <span>{attendance.contact}</span>
+                <span>{attendance.attendance ? 'O' : 'X'}</span>
                 <span>
-                  {attendance.attendance ? "O" : "X"}
-                </span>
-                <span>
-                  {attendance.isDining === "예정" ? "O" : attendance.isDining === "미정" ? "-" : "X"}
+                  {attendance.isDining === '예정'
+                    ? 'O'
+                    : attendance.isDining === '미정'
+                      ? '-'
+                      : 'X'}
                 </span>
               </div>
             ))
           ) : (
-            <div className="text-center text-sm text-gray-500 py-8">참석 데이터가 없습니다.</div>
+            <div className="text-center text-sm text-gray-500 py-8">
+              참석 데이터가 없습니다.
+            </div>
           )}
         </section>
       </section>

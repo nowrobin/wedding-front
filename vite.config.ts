@@ -7,18 +7,13 @@ import tsconfigPaths from 'vite-tsconfig-paths';
 export default defineConfig({
   plugins: [react(), tsconfigPaths()],
   base: '/',
-  // server: {
-  //   proxy: {
-  //     '/api': 'https://woogyeol.site',
-  //   },
-  // },
+  define: {
+    'process.env': process.env,
+    VITE_API_URL: process.env.VITE_API_URL,
+    VITE_JAVASCRIPT_KEY: process.env.VITE_JAVASCRIPT_KEY,
+    VITE_KAKAO_KEY: process.env.VITE_JAVASCRIPT_KEY,
+    VITE_TOKEN: process.env.VITE_TOKEN,
+    VITE_K_REST_API_KEY: process.env.VITE_K_REST_API_KEY,
+    VITE_NAVER_CLIENT_ID: process.env.VITE_NAVER_CLIENT_ID,
+  },
 });
-
-// proxy: {
-//   '/api': {
-//     target: 'https://woogyeol.site', // 백엔드 주소
-//     changeOrigin: true,
-//     secure: true,
-//     rewrite: (path) => path.replace(/^\/api/, ''),
-//   },
-// },
