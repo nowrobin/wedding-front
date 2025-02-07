@@ -5,10 +5,10 @@ import axios, {
 } from 'axios';
 import useAuthStore from '../store/useAuthStore';
 
-const BASE_URL = import.meta.env.VITE_API_URL;
+// const BASE_URL = import.meta.env.VITE_API_URL;
 
 export const axiosInstance = axios.create({
-  baseURL: `${BASE_URL}/api`,
+  baseURL: `/api`,
   headers: {
     'Content-Type': 'application/json',
   },
