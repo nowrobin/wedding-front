@@ -49,7 +49,7 @@ const CardHeader = ({ title, setModal, image, id }: CardHeaderProp) => {
             shareTitle={title}
             shareDesc={'결혼합니다'}
             shareImage={image}
-            shareUrl={`http://localhost:5173/result/${userId}/${id}`}
+            shareUrl={`https://woogyeol.vercel.app/result/${userId}/${id}`}
             shareHeader={''}
           />
         )}

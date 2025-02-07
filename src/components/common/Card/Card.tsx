@@ -2,9 +2,10 @@ import CardHeader from './CardHeader';
 import CardFooter from './CardFooter';
 import logo from '@assets/image/wedding1.png';
 import ReusableModal from '@/components/common/Modal/ReusableModal';
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import { useDeleteInvitation } from '@/hooks/useInvitation';
 import { useUserStore } from '@/store/useUserStore';
+import { useNavigate } from 'react-router';
 
 interface CardProps {
   image: string;
@@ -15,10 +16,16 @@ interface CardProps {
 const Card = ({ image, id: invitationId, title }: CardProps) => {
   const { mutate: deleteInvitaion } = useDeleteInvitation(invitationId);
   const { id } = useUserStore();
+  const navigate = useNavigate()
   const handleDelete = async () => {
     await deleteInvitaion();
     setModal(false);
   };
+  useEffect(() => {
+    if (!!id) {
+      navigate('/login')
+    }
+  }, [id])
   const [modal, setModal] = useState(false);
   return (
     <div className="relative flex flex-col items-center rounded-lg w-[152px] bg-gray-100 shadow-lg">
