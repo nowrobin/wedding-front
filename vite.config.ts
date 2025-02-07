@@ -9,11 +9,10 @@ export default defineConfig({
   base: '/',
   define: {
     'process.env': process.env,
-    VITE_API_URL: process.env.VITE_API_URL,
-    VITE_JAVASCRIPT_KEY: process.env.VITE_JAVASCRIPT_KEY,
-    VITE_KAKAO_KEY: process.env.VITE_JAVASCRIPT_KEY,
-    VITE_TOKEN: process.env.VITE_TOKEN,
-    VITE_K_REST_API_KEY: process.env.VITE_K_REST_API_KEY,
-    VITE_NAVER_CLIENT_ID: process.env.VITE_NAVER_CLIENT_ID,
+    VITE_API_URL: process.env.API_URL,
+    VITE_JAVASCRIPT_KEY: process.env.JAVASCRIPT_KEY,
+    VITE_KAKAO_KEY: process.env.AVASCRIPT_KEY,
+    VITE_K_REST_API_KEY: process.env.K_REST_API_KEY,
+    VITE_NAVER_CLIENT_ID: process.env.NAVER_CLIENT_ID,
   },
 });
