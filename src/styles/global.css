@@ -14,8 +14,8 @@
   html,
   body,
   #root {
-    @apply bg-black bg-opacity-80 text-gray-800;
-    @apply bg-black bg-opacity-80 text-gray-800;
+    @apply bg-white bg-opacity-80 text-gray-800;
+    @apply bg-white bg-opacity-80 text-gray-800;
   }
   @font-face {
     font-family: 'SUIT';

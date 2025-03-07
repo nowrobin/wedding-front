@@ -1,0 +1,25 @@
+import type { Preview } from '@storybook/react';
+import StorybookProvider from '../src/utils/StorybookProvider'
+import React from 'react';
+import '../src/styles/global.css'
+
+
+const preview: Preview = {
+  parameters: {
+    controls: {
+      matchers: {
+        color: /(background|color)$/i,
+        date: /Date$/i,
+      },
+    },
+  },
+  decorators: [
+    (Story) => (
+      <StorybookProvider>
+        <Story />
+      </StorybookProvider>
+    ),
+  ],
+};
+
+export default preview;
